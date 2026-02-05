@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Miss India ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+body{
+margin:0;min-height:100vh;
+background:linear-gradient(135deg,#cfe9ff,#ffd8a8);
+overflow:hidden;display:flex;justify-content:center;align-items:center;
+transition:1.5s;
+}
+body.night{background:linear-gradient(135deg,#0b1d2b,#2c1b0f)}
+.screen{display:none;text-align:center;padding:20px;max-width:750px;animation:fadeIn 1s ease}
+.screen.active{display:block}
+.handwritten{
+font-family:'Dancing Script',cursive;font-size:1.4rem;line-height:1.9;color:#2c2c2c
+}
+body.night .handwritten{color:#f2f2f2}
+.name-wrapper{margin-bottom:30px;position:relative}
+#typedName{
+font-size:3rem;letter-spacing:5px;font-weight:bold;
+background:linear-gradient(90deg,#6ec1ff,#ffb703,#6ec1ff);
+background-size:300%;
+-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+animation:shine 3s infinite,floatName 4s ease-in-out infinite,heartbeat 2s infinite;
+min-height:1.2em;
+}
+.subtitle{font-size:1.2rem;margin-top:5px;opacity:.8}
+.buttons{margin-top:30px}
+button{
+padding:12px 25px;margin:10px;font-size:1rem;border:none;
+border-radius:30px;cursor:pointer;background:#ffb703;color:#fff;transition:.3s
+}
+button:hover{transform:scale(1.1)}
+.no-run{position:relative}
+.heart{
+position:absolute;font-size:20px;animation:float 6s linear infinite;opacity:.6
+}
+.sparkle{
+position:absolute;font-size:12px;animation:sparkle 2s infinite;pointer-events:none
+}
+.firework{
+position:fixed;width:8px;height:8px;border-radius:50%;
+animation:explode 1.2s ease-out forwards;pointer-events:none
+}
+.night-toggle{
+position:fixed;top:15px;right:15px;
+background:rgba(255,255,255,.2);color:#fff;border-radius:50px;
+padding:8px 15px;font-size:.9rem;cursor:pointer;z-index:999
+}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1}}
+@keyframes float{from{transform:translateY(100vh)}to{transform:translateY(-10vh)}}
+@keyframes shine{0%{background-position:0%}100%{background-position:300%}}
+@keyframes floatName{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes heartbeat{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+@keyframes sparkle{0%{opacity:0}50%{opacity:1}100%{opacity:0}}
+@keyframes explode{0%{transform:scale(0);opacity:1}100%{transform:scale(15);opacity:0}}
+</style>
+</head>
+
+<body>
+
+<div class="night-toggle" onclick="toggleNight()">🌙 Night</div>
+<div class="night-toggle" style="top:60px" onclick="playMusic()">🎵 Music</div>
+
+<audio id="bgMusic" loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_4b6e9c8a7b.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+for(let i=0;i<25;i++){
+let h=document.createElement("div");
+h.className="heart";h.innerHTML="❤️";
+h.style.left=Math.random()*100+"vw";
+h.style.animationDuration=4+Math.random()*4+"s";
+document.body.appendChild(h);
+}
+</script>
+
+<div class="screen active" id="s1">
+<div class="name-wrapper">
+<h1 id="typedName"></h1>
+<div class="subtitle">My Miss India ❤️</div>
+</div>
+
+<p class="handwritten">
+I am sorry for all my mistakes.<br>
+I know I have hurt you many times with my actions.<br>
+And I am really sorry for everything I did.<br><br>
+I tried, I failed, no matter.<br>
+I will try again, fail again, fail better.<br><br>
+There is no chance I am letting you go away.<br><br>
+<b>Can you please forgive me for one last time?</b>
+</p>
+
+<div class="buttons">
+<button onclick="yesPopup()">YES</button>
+<button onclick="go('s2')">NO</button>
+</div>
+</div>
+
+<div class="screen" id="s2">
+<p class="handwritten">
+I am completely yours…<br><br>
+I LOVE YOU and I don’t see an end to that.<br><br>
+You felt like the place I was always walking towards without knowing it.<br><br>
+There’s no second option, no backup, no what if.<br>
+I chose you with everything I have.<br><br>
+My heart, my time, my future — all of it.<br><br>
+I am here fully, completely… ❤️<br><br>
+Give me one last chance please.
+</p>
+<div class="buttons">
+<button onclick="yesPopup()">YES</button>
+<button onclick="go('s3')">NO</button>
+</div>
+</div>
+
+<div class="screen" id="s3">
+<p class="handwritten">
+Can we fall in love again?<br><br>
+Clean up the mess I made?<br>
+Restart everything and forget the past?<br><br>
+You are my person.<br>
+I want you as my wife, not my past.<br><br>
+<b>Can we please?</b>
+</p>
+<div class="buttons">
+<button onclick="yesFinal()">YES</button>
+<button class="no-run" id="finalNo">NO</button>
+</div>
+</div>
+
+<script>
+function go(id){
+document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+function toggleNight(){document.body.classList.toggle("night")}
+setTimeout(()=>document.body.classList.add("night"),6000)
+function playMusic(){
+let m=document.getElementById("bgMusic");
+m.volume=0.4;m.play();
+}
+const nameText="DIBYASHREE";let i=0;
+const typed=document.getElementById("typedName");
+(function type(){
+if(i<nameText.length){
+typed.innerHTML+=nameText.charAt(i++);
+setTimeout(type,200);
+}})();
+setInterval(()=>{
+let s=document.createElement("div");
+s.className="sparkle";s.innerHTML="✨";
+s.style.left=45+Math.random()*10+"%";
+s.style.top=70+Math.random()*40+"px";
+document.body.appendChild(s);
+setTimeout(()=>s.remove(),2000);
+},600);
+function fireworks(){
+for(let i=0;i<20;i++){
+let f=document.createElement("div");
+f.className="firework";
+f.style.left=Math.random()*window.innerWidth+"px";
+f.style.top=Math.random()*window.innerHeight+"px";
+f.style.boxShadow="0 0 10px #ff4d6d,20px 0 #ffd166,-20px 0 #6ec1ff,0 20px #ffb703,0 -20px #ff4d6d";
+document.body.appendChild(f);
+setTimeout(()=>f.remove(),1200);
+}
+}
+function yesPopup(){
+fireworks();
+setTimeout(()=>alert("I knew you love me ❤️\nI LOVE YOU THE MOST MY MISS INDIA"),300);
+}
+function yesFinal(){
+fireworks();
+setTimeout(()=>alert("I love you the most my MISS INDIA ❤️"),300);
+}
+let noBtn=document.getElementById("finalNo");
+let stage=0;
+noBtn.addEventListener("click",()=>{
+if(stage===0){alert("Really?");stage++}
+else if(stage===1){alert("Give me one last chance… ❤️");stage++}
+});
+noBtn.addEventListener("mouseover",()=>{
+if(stage>=2){
+noBtn.style.left=Math.random()*200-100+"px";
+noBtn.style.top=Math.random()*200-100+"px";
+}});
+</script>
+
+</body>
+</html>
